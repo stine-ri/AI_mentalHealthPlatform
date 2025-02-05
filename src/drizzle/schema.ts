@@ -179,3 +179,6 @@ export type TSPayment = typeof payments .$inferSelect;
 
 export type TIBookings = typeof bookings .$inferInsert;
 export type TSBookings = typeof bookings .$inferSelect;
+
+export type TIResources = typeof resources .$inferInsert;
+export type TSResources = typeof resources .$inferSelect;

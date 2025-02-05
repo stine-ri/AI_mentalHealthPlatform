@@ -9,6 +9,7 @@ import { diagnosticRouter } from './diagnostics/diagnostics.router'
 import { feedbackRouter } from './feedback/feedback.router'
 import {paymentRouter} from './payments/payments.router'
 import {bookingRouter } from './bookings/bookings.router'
+import {resourcesRouter} from './resources/resources.router'
 import { serve } from '@hono/node-server'
 import {cors} from 'hono/cors'
 
@@ -29,6 +30,7 @@ app.route("/api",diagnosticRouter)
 app.route("/api", feedbackRouter)
 app.route("/api", paymentRouter)
 app.route("/api", bookingRouter)
+app.route("/api", resourcesRouter)
 serve({
     fetch: app.fetch,
     port:Number(process.env.PORT)
