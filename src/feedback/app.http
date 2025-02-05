@@ -1,0 +1,23 @@
+###
+POST http://localhost:8000/api/feedbacks
+Content-Type: application/json
+
+{
+
+    "user_id":3,
+    "session_id":1,
+    "rating":8,
+    "comments":"the session was nice"
+
+}
+###
+PUT http://localhost:8000/api/feedbacks/1
+Content-Type: application/json
+
+{
+
+     "contact_phone": "0789654322"
+}
+###
+
+DELETE http://localhost:8000/api/feedbacks/1

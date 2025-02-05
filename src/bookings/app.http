@@ -1,0 +1,23 @@
+###
+POST http://localhost:8000/api/bookings
+Content-Type: application/json
+
+{
+
+    "user_id":3,
+    "therapist_id":1,
+    "session_date":2025-02-05,
+    "booking_status":"Booked"
+
+}
+###
+PUT http://localhost:8000/api/bookings/1
+Content-Type: application/json
+
+{
+
+     "contact_phone": "0789654322"
+}
+###
+
+DELETE http://localhost:8000/api/bookings/1

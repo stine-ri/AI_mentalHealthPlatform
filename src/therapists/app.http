@@ -1,0 +1,22 @@
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+
+     "full_name": "Kimm taehyung",
+      "specialization": "psychology",
+      "experience_years": 27,
+      "contact_phone": "0789654321"
+}
+###
+PUT http://localhost:8000/api/therapists/1
+Content-Type: application/json
+
+{
+
+     "contact_phone": "0789654322"
+}
+###
+
+DELETE http://localhost:8000/api/therapists/1

@@ -1,0 +1,22 @@
+###
+POST http://localhost:8000/api/session
+Content-Type: application/json
+
+{
+
+    "user_id":1,
+    "therapist_id":1,
+    "session_date":"2025-02-05",
+    "session_notes": "The patient is improving"
+}
+###
+PUT http://localhost:8000/api/session/1
+Content-Type: application/json
+
+{
+
+     "contact_phone": "0789654322"
+}
+###
+
+DELETE http://localhost:8000/api/session/1

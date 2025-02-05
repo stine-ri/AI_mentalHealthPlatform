@@ -1,0 +1,22 @@
+###
+POST http://localhost:8000/api/diagnostics
+Content-Type: application/json
+
+{
+
+   "user_id":4,
+   "diagnosis":"depression",
+   "recommendations":"Sleep more and avoid stress"
+
+}
+###
+PUT http://localhost:8000/api/diagnostics/1
+Content-Type: application/json
+
+{
+
+     "contact_phone": "0789654322"
+}
+###
+
+DELETE http://localhost:8000/api/diagnostics/1
