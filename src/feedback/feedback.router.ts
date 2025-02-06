@@ -20,5 +20,5 @@ feedbackRouter.post("/feedbacks", zValidator('json', feedbackSchema, (result, c)
 //update a therapist
 feedbackRouter.put("/feedbacks/:id", updatefeedbacks) 
 
-feedbackRouter.delete("/feedbacks/:id",adminRoleAuth, deletefeedbacks)
+feedbackRouter.delete("/feedbacks/:id", deletefeedbacks)
 

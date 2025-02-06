@@ -3,6 +3,7 @@ import { listdiagnostics,getdiagnostics , creatediagnostics, updatediagnostics, 
 import { zValidator } from "@hono/zod-validator";
 import { diagnosticSchema} from "./validator"; 
 import { adminRoleAuth } from '../middleware/bearAuth'
+import { therapistRoleAuth } from '../middleware/bearAuth'
 export const diagnosticRouter = new Hono();
 //get all diagnostics
 diagnosticRouter.get("/diagnostics",adminRoleAuth ,listdiagnostics) 
@@ -20,5 +21,5 @@ diagnosticRouter.post("/diagnostics", zValidator('json', diagnosticSchema, (resu
 //update a therapist
 diagnosticRouter.put("/diagnostics/:id", updatediagnostics) 
 
-diagnosticRouter.delete("/diagnostics/:id",adminRoleAuth, deletediagnostics)
+diagnosticRouter.delete("/diagnostics/:id",therapistRoleAuth, deletediagnostics)
 

@@ -54,7 +54,7 @@ import {
     id: serial("session_id").primaryKey(),
     user_id: integer("user_id").notNull().references(() => users.id),
     therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
-    session_date: timestamp("session_date").notNull(),
+    session_date: date("session_date").notNull(),
     session_notes: text("session_notes"),
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow(),
@@ -104,7 +104,7 @@ import {
     session_id: integer("session_id").notNull().references(() => sessions.id),
     amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
     payment_status: varchar("payment_status", { length: 50 }).default("Pending"),
-    payment_date: timestamp("payment_date").defaultNow(),
+    payment_date: date("payment_date").defaultNow(),
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow(),
   });
@@ -128,7 +128,7 @@ export const bookings = pgTable("bookings", {
     id: serial("booking_id").primaryKey(),
     user_id: integer("user_id").notNull().references(() => users.id),
     therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
-    session_date: timestamp("session_date").notNull(),
+    session_date: date("session_date").notNull(),
     booking_status: varchar("booking_status", { length: 50 }).default("Pending"), // Could be "Confirmed", "Cancelled", etc.
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow(),

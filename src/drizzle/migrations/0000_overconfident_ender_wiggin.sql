@@ -14,7 +14,7 @@ CREATE TABLE "bookings" (
 	"booking_id" serial PRIMARY KEY NOT NULL,
 	"user_id" integer NOT NULL,
 	"therapist_id" integer NOT NULL,
-	"session_date" timestamp NOT NULL,
+	"session_date" date NOT NULL,
 	"booking_status" varchar(50) DEFAULT 'Pending',
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
@@ -44,7 +44,7 @@ CREATE TABLE "payments" (
 	"session_id" integer NOT NULL,
 	"amount" numeric(10, 2) NOT NULL,
 	"payment_status" varchar(50) DEFAULT 'Pending',
-	"payment_date" timestamp DEFAULT now(),
+	"payment_date" date DEFAULT now(),
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
@@ -61,7 +61,7 @@ CREATE TABLE "sessions" (
 	"session_id" serial PRIMARY KEY NOT NULL,
 	"user_id" integer NOT NULL,
 	"therapist_id" integer NOT NULL,
-	"session_date" timestamp NOT NULL,
+	"session_date" date NOT NULL,
 	"session_notes" text,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()

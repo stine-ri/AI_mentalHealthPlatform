@@ -19,16 +19,16 @@ export const getPaymentService = async (id: number): Promise<TIPayment | undefin
 }
 export const createPaymentService = async (user: TIPayment) => {
     await db.insert(payments).values(user)
-    return "therapist created successfully";
+    return "payment created successfully";
 
 }
 
 export const updatePaymentService = async (id: number, user: TIPayment) => {
     await db.update(payments).set(user).where(eq(payments.id, id))
-    return "therapist updated successfully";
+    return "payment updated successfully";
 }
 
 export const deletePaymentService = async (id: number) => {
     await db.delete(payments).where(eq(payments.id, id))
-    return "therapist deleted successfully";
+    return "payment deleted successfully";
 }

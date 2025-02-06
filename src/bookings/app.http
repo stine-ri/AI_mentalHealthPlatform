@@ -6,7 +6,7 @@ Content-Type: application/json
 
     "user_id":3,
     "therapist_id":1,
-    "session_date":2025-02-05,
+    "session_date":"2025-02-05",
     "booking_status":"Booked"
 
 }
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
 
-     "contact_phone": "0789654322"
+     "booking_status":"cancelled"
 }
 ###
 

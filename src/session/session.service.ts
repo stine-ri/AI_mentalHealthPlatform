@@ -20,16 +20,16 @@ export const getSessionService = async (id: number): Promise<TISession | undefin
 }
 export const createSessionService = async (user: TISession) => {
     await db.insert(sessions).values(user)
-    return "therapist created successfully";
+    return "session created successfully";
 
 }
 
 export const updateSessionService = async (id: number, user: TISession) => {
     await db.update(sessions).set(user).where(eq(sessions.id, id))
-    return "therapist updated successfully";
+    return "session updated successfully";
 }
 
 export const deleteSessionService = async (id: number) => {
     await db.delete(sessions).where(eq(sessions.id, id))
-    return "therapist deleted successfully";
+    return "session deleted successfully";
 }

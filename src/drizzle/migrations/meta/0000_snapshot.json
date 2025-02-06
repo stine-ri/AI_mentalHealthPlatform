@@ -1,5 +1,5 @@
 {
-  "id": "7c64bb36-d9ee-45bc-92ba-d34ef82ecb19",
+  "id": "e20957a5-f0c3-41c8-bc18-3804286cb536",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -109,7 +109,7 @@
         },
         "session_date": {
           "name": "session_date",
-          "type": "timestamp",
+          "type": "date",
           "primaryKey": false,
           "notNull": true
         },
@@ -349,7 +349,7 @@
         },
         "payment_date": {
           "name": "payment_date",
-          "type": "timestamp",
+          "type": "date",
           "primaryKey": false,
           "notNull": false,
           "default": "now()"
@@ -473,7 +473,7 @@
         },
         "session_date": {
           "name": "session_date",
-          "type": "timestamp",
+          "type": "date",
           "primaryKey": false,
           "notNull": true
         },

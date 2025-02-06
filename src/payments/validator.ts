@@ -7,7 +7,7 @@
         session_id:z.number(),
         amount: z.number(),
         payment_status:z.string(),
-        payment_date: z.string(),
+        payment_date: z.coerce.date(),
     })
     
     

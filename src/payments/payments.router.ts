@@ -20,5 +20,5 @@ paymentRouter.post("/payments", zValidator('json', paymentsSchema, (result, c) =
 //update a therapist
 paymentRouter.put("/payments/:id", updatePayments) 
 
-paymentRouter.delete("/payments/:id",adminRoleAuth, deletePayments)
+paymentRouter.delete("/payments/:id", deletePayments)
 

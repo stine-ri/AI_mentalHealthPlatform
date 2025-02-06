@@ -10,13 +10,14 @@ Content-Type: application/json
 
 }
 ###
-PUT http://localhost:8000/api/diagnostics/1
+PUT http://localhost:8000/api/diagnostics/5
 Content-Type: application/json
 
 {
 
-     "contact_phone": "0789654322"
+     "diagnosis":"depression ptsd"
 }
 ###
 
-DELETE http://localhost:8000/api/diagnostics/1
+DELETE http://localhost:8000/api/diagnostics/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoic3RpbmUgUmlhbiAiLCJjb250YWN0X3Bob25lIjoiMDc5OTk4NzE4OCIsImFkZHJlc3MiOiI0OTAga2VueWEiLCJpZCI6M30sInJvbGUiOiJ0aGVyYXBpc3QiLCJleHAiOjE3Mzg4NjQ4NjV9.bj24wZlG1KSYkVPXwk8c4-BnqVHxUloIvAKRkyJ_8rg

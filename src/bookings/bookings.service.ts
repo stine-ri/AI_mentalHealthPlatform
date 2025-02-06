@@ -19,16 +19,16 @@ export const getBookingsService = async (id: number): Promise<TIBookings | undef
 }
 export const createBookingsService = async (user: TIBookings) => {
     await db.insert(bookings).values(user)
-    return "therapist created successfully";
+    return "booking created successfully";
 
 }
 
 export const updateBookingsService = async (id: number, user: TIBookings) => {
     await db.update(bookings).set(user).where(eq(bookings.id, id))
-    return "therapist updated successfully";
+    return "booking updated successfully";
 }
 
 export const deleteBookingsService = async (id: number) => {
     await db.delete(bookings).where(eq(bookings.id, id))
-    return "therapist deleted successfully";
+    return "booking deleted successfully";
 }

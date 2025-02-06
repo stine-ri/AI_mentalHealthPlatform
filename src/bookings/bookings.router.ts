@@ -20,5 +20,5 @@ bookingRouter.post("/bookings", zValidator('json', bookingsSchema, (result, c) =
 //update a therapist
 bookingRouter.put("/bookings/:id", updateBookings) 
 
-bookingRouter.delete("/bookings/:id",adminRoleAuth, deleteBookings)
+bookingRouter.delete("/bookings/:id", deleteBookings)
 
