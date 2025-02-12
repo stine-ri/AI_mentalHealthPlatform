@@ -19,6 +19,7 @@
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.2",
+    "@neondatabase/serverless": "^0.10.4",
     "@types/bcrypt": "^5.0.2",
     "@types/stripe": "^8.0.417",
     "bcrypt": "^5.1.1",
