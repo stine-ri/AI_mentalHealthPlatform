@@ -45,6 +45,7 @@ CREATE TABLE "payments" (
 	"amount" numeric(10, 2) NOT NULL,
 	"payment_status" varchar(50) DEFAULT 'Pending',
 	"payment_date" date DEFAULT now(),
+	"stripe_payment_id" text NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );

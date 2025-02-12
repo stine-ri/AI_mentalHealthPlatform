@@ -97,17 +97,28 @@ import {
     session: one(sessions, { fields: [feedback.session_id], references: [sessions.id] }),
   }));
   
-  // Payments Table
-  export const payments = pgTable("payments", {
-    id: serial("payment_id").primaryKey(),
-    user_id: integer("user_id").notNull().references(() => users.id),
-    session_id: integer("session_id").notNull().references(() => sessions.id),
-    amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
-    payment_status: varchar("payment_status", { length: 50 }).default("Pending"),
-    payment_date: date("payment_date").defaultNow(),
-    created_at: timestamp("created_at").defaultNow(),
-    updated_at: timestamp("updated_at").defaultNow(),
-  });
+    // Payments Table
+    export const payments = pgTable("payments", {
+      id: serial("payment_id").primaryKey(),  // Primary Key for the payment
+      user_id: integer("user_id")
+        .notNull()
+        .references(() => users.id), // Foreign key to users
+      session_id: integer("session_id")
+        .notNull()
+        .references(() => sessions.id), // Foreign key to sessions
+      amount: decimal("amount", { precision: 10, scale: 2 })
+        .notNull(), // Store payment amounts up to two decimal places
+      payment_status: varchar("payment_status", { length: 50 })
+        .default("Pending"), // Track payment status
+      payment_date: date("payment_date")
+        .defaultNow(), // Track payment date
+      stripe_payment_id: text("stripe_payment_id")
+        .notNull(), // Store Stripe payment intent ID
+      created_at: timestamp("created_at")
+        .defaultNow(), // Creation timestamp
+      updated_at: timestamp("updated_at")
+        .defaultNow(), // Updated timestamp
+    });
   
   export const paymentsRelations = relations(payments, ({ one }) => ({
     user: one(users, { fields: [payments.user_id], references: [users.id] }),

@@ -4,11 +4,12 @@ Content-Type: application/json
 
 {
 
-   "user_id":3,
-   "session_id":4,
+   "user_id":2,
+   "session_id":2,
    "amount": 5000,
    "payment_status":"paid",
-   "payment_date": "2025-02-05"
+   "payment_date": "2025-02-05",
+   "stripe_payment_id": "1"
 }
 ###
 PUT http://localhost:8000/api/payments/1
@@ -19,5 +20,22 @@ Content-Type: application/json
      "payment_status":"not-paid"
 }
 ###
+POST http://localhost:8000/api/payments/create-payment-intent
+Content-Type: application/json
 
-DELETE http://localhost:8000/api/payments/1
+{
+  "userId": 2,
+  "sessionId": 3,
+  "amount": 17050,     
+  "currency": "usd",
+  "paymentStatus": "complete"
+}
+
+###
+DELETE http://localhost:8000/api/payments/2
+
+
+####
+//get all payments
+GET http://localhost:8000/api/payments
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoiQ2hyaXN0aW5lIFJpYW4gIiwiY29udGFjdF9waG9uZSI6IjA3OTkwODcxODgiLCJhZGRyZXNzIjoiOTAga2VueWEiLCJpZCI6MX0sInJvbGUiOiJhZG1pbiIsImV4cCI6MTczOTM3MjQzNX0.G57Yc5pwQSH_W1msP5u8_f9HaS0hpFN5hJydKgJom-c

@@ -1,5 +1,5 @@
 {
-  "id": "e20957a5-f0c3-41c8-bc18-3804286cb536",
+  "id": "49395195-ed6a-4047-95e4-7c20d89b4fcc",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -353,6 +353,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": "now()"
+        },
+        "stripe_payment_id": {
+          "name": "stripe_payment_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         },
         "created_at": {
           "name": "created_at",

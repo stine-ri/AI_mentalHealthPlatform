@@ -8,6 +8,7 @@
         amount: z.number(),
         payment_status:z.string(),
         payment_date: z.coerce.date(),
+        stripe_payment_id: z.string(),
     })
     
     
