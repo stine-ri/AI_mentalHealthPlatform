@@ -1,8 +1,8 @@
 import  {Hono }from 'hono'
 import "dotenv/config"
 import {logger} from 'hono/logger'
-import {userRouter} from '../src/users/users.router'
-import {authRouter} from '../src/authentication/auth.router'
+import {userRouter }from './users/users.router'
+import {authRouter} from './authentication/auth.router'
 import { therapistRouter } from './therapists/therapists.router'
 import { sessionRouter } from './session/session.router'
 import { diagnosticRouter } from './diagnostics/diagnostics.router'
