@@ -19,7 +19,12 @@ app.get('/', (c) => {
   })
 
 //middleware
-  app.use('*', cors())
+app.use(
+  cors({
+    origin: "http://localhost:5173", // ✅ Allow only your frontend
+    credentials: true, // ✅ Allow authentication
+  })
+);
 
 //routes
 app.route("/api",userRouter)
