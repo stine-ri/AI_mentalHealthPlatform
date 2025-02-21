@@ -5,7 +5,7 @@ import { therapistSchema } from "./validator";
 import { adminRoleAuth } from '../middleware/bearAuth'
 export const therapistRouter = new Hono();
 //get all therapists
-therapistRouter.get("/therapists",adminRoleAuth ,listtherapists) 
+therapistRouter.get("/therapists", listtherapists) 
 
 //get a single therapist   api/therapist/1
 therapistRouter.get("/therapists/:id", gettherapists)
