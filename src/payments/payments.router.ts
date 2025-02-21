@@ -9,7 +9,7 @@ export const paymentRouter = new Hono();
 paymentRouter.get("/payments",adminRoleAuth ,listPayments) 
 
 //get a single therapist   api/therapist/1
-paymentRouter.get("/payments/:id",adminRoleAuth, getPayments)
+paymentRouter.get("/payments/:id", getPayments)
 
 // create a therapist 
 paymentRouter.post("/payments", zValidator('json', paymentsSchema, (result, c) => {
