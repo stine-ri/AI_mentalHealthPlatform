@@ -4,10 +4,10 @@ Content-Type: application/json
 
 {
 
-     "full_name": "Dr Celestina Kweyu",
-      "specialization": "psychologist",
-      "experience_years": 20,
-      "contact_phone": "0789954321"
+     "full_name": "Dr Christine Monyancha",
+      "specialization": "Clinical Social worker",
+      "experience_years": 23,
+      "contact_phone": "0767954329"
 }
 ###
 PUT http://localhost:8000/api/therapists/1

@@ -8,7 +8,7 @@ export const therapistRouter = new Hono();
 therapistRouter.get("/therapists",adminRoleAuth ,listtherapists) 
 
 //get a single therapist   api/therapist/1
-therapistRouter.get("/therapists/:id",adminRoleAuth, gettherapists)
+therapistRouter.get("/therapists/:id", gettherapists)
 
 // create a therapist 
 therapistRouter.post("/therapists", zValidator('json', therapistSchema, (result, c) => {

@@ -5,7 +5,7 @@ Content-Type: application/json
 {
 
     "user_id":9,
-    "therapist_id":1,
+    "therapist_id":3,
     "session_date":"2025-02-05",
     "booking_status":"Booked"
 
