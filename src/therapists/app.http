@@ -4,10 +4,10 @@ Content-Type: application/json
 
 {
 
-     "full_name": "Kimm taehyung",
-      "specialization": "psychology",
-      "experience_years": 27,
-      "contact_phone": "0789654321"
+     "full_name": "Dr Celestina Kweyu",
+      "specialization": "psychologist",
+      "experience_years": 20,
+      "contact_phone": "0789954321"
 }
 ###
 PUT http://localhost:8000/api/therapists/1

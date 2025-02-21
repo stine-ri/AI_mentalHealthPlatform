@@ -24,12 +24,15 @@ POST http://localhost:8000/api/payments/create-payment-intent
 Content-Type: application/json
 
 {
-  "userId": 1,
+  "userId": 3,
   "sessionId": 1,
-  "amount": 17050,     
+  "amount": 1000,     
   "currency": "usd",
   "paymentStatus": "complete"
 }
+###
+POST https://localhost:8000/api/payments
+
 
 ###
 DELETE http://localhost:8000/api/payments/2
