@@ -5,7 +5,7 @@ import { bookingsSchema} from "./validator";
 import { adminRoleAuth } from '../middleware/bearAuth'
 export const bookingRouter = new Hono();
 //get all Bookings
-bookingRouter.get("/bookings",adminRoleAuth ,listBookings) 
+bookingRouter.get("/bookings", listBookings) 
 
 //get a single therapist   api/therapist/1
 bookingRouter.get("/bookings/:id", getBookings)
