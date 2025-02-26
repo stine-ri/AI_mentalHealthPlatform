@@ -23,7 +23,7 @@ export const getUser = async (c: Context) => {
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
     const user = await getuserservice(id);
-    if (user == undefined) {
+            if (user == undefined) {
         return c.text("user not found", 404);
     }
     return c.json(user, 200);

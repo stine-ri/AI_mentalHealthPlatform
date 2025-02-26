@@ -41,6 +41,7 @@ import {
     specialization: varchar("specialization", { length: 255 }),
     experience_years: integer("experience_years").default(0),
     contact_phone: varchar("contact_phone", { length: 20 }),
+    availability: boolean("availability").default(true), 
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow(),
   });

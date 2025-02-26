@@ -4,7 +4,7 @@ import {therapistsService, getTherapistservice, createTherapistservice, updateTh
 import*as bcrypt from "bcrypt";
 export const listtherapists = async (c: Context) => {
     try {
-        //limit the number of therapistss to be returned
+        //limit the number of therapists to be returned
 
         const limit = Number(c.req.query('limit'))
 
