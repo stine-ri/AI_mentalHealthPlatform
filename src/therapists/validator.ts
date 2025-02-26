@@ -7,5 +7,6 @@ export const therapistSchema = z.object({
       specialization: z.string(),
       experience_years: z.number(),
       contact_phone: z.string(),
+      availability: z.boolean(),
 })
 

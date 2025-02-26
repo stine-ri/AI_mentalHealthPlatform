@@ -7,7 +7,8 @@ Content-Type: application/json
      "full_name": "Dr Christine Monyancha",
       "specialization": "Clinical Social worker",
       "experience_years": 23,
-      "contact_phone": "0767954329"
+      "contact_phone": "0767954329",
+      "availability":true
 }
 ###
 PUT http://localhost:8000/api/therapists/1
