@@ -20,6 +20,7 @@ export const getTherapistservice = async (id: number): Promise<TITherapists | un
 }
 export const createTherapistservice = async (user: TITherapists) => {
     await db.insert(therapists).values(user)
+    console.log("Therapists from DB:", therapists);
     return "therapist created successfully";
 
 }

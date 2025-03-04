@@ -6,7 +6,7 @@ import { adminRoleAuth } from '../middleware/bearAuth'
 import { createPaymentIntent, handleWebhook } from './payments.controller';
 export const paymentRouter = new Hono();
 //get all payments
-paymentRouter.get("/payments",adminRoleAuth ,listPayments) 
+paymentRouter.get("/payments" ,listPayments) 
 
 //get a single therapist   api/therapist/1
 paymentRouter.get("/payments/:id", getPayments)

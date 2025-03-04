@@ -1,3 +1,20 @@
+GET http://localhost:8000/api/therapists
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoiQ2hyaXN0aW5lIFJpYW4gIiwiY29udGFjdF9waG9uZSI6IjA3OTkwODcxODgiLCJhZGRyZXNzIjoiOTAga2VueWEiLCJpZCI6MX0sInJvbGUiOiJhZG1pbiIsImV4cCI6MTc0MTEyOTA0M30.fspVLNRAr1nOKJXICMDRzF1tzhpLIjNSN9t3Ea_IOS8
+###
+
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+
+     "full_name": "Dr OntwekaMonyancha",
+      "specialization": "Clinical Social worker",
+      "experience_years": 13,
+      "contact_phone": "0700954329",
+      "availability":true
+}
+###
 ###
 POST http://localhost:8000/api/therapists
 Content-Type: application/json
@@ -10,6 +27,17 @@ Content-Type: application/json
       "contact_phone": "0767954329",
       "availability":true
 }
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+  {
+    "full_name": "Dr. John Smith",
+    "specialization": "Therapist",
+    "experience_years": 7,
+    "contact_phone": "987654321",
+    "availability": false
+  }
 ###
 PUT http://localhost:8000/api/therapists/1
 Content-Type: application/json
