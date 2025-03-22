@@ -43,7 +43,12 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  secure: true, // Ensure SSL/TLS
+  tls: {
+    rejectUnauthorized: false, // Consider for development, not recommended for production
+  },
 });
+
 
 // ✅ Therapist sends Google Meet link
 userRouter.post("/send-meet-link", async (c) => {
@@ -71,13 +76,14 @@ userRouter.post("/send-meet-link", async (c) => {
   const userEmail = booking[0].email;
 
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    const info = await transporter.sendMail({
+      from: `"Therapist" <${process.env.EMAIL_USER}>`,
       to: userEmail,
       subject: "Google Meet Link for Your Session",
       text: `Hello, your therapist has scheduled a Google Meet session. Join using this link: ${meetLink}`,
     });
 
+    console.log("Email sent:", info.response);
     return c.json({ success: `Meet link sent to ${userEmail}` });
   } catch (error) {
     console.error("Email sending error:", error);

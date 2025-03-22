@@ -37,6 +37,6 @@ POST http://localhost:8000/api/send-meet-link
 Content-Type: application/json
 
 {
-  "bookingId": 1,
+  "bookingId": 29,
   "meetLink": "https://meet.google.com/new"
 }
