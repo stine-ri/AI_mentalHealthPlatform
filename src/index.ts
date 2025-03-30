@@ -12,7 +12,7 @@ import {bookingRouter } from './bookings/bookings.router'
 import {resourcesRouter} from './resources/resources.router'
 import { serve } from '@hono/node-server'
 import {cors} from 'hono/cors'
-
+import mpesaRouter from './mpesa/mpesa.router'
 const app = new Hono();
 app.get('/', (c) => {
     return c.text('the code is okay')
@@ -36,6 +36,7 @@ app.route("/api", feedbackRouter)
 app.route("/api", paymentRouter)
 app.route("/api", bookingRouter)
 app.route("/api", resourcesRouter)
+app.route('/api', mpesaRouter);
 serve({
     fetch: app.fetch,
     port:Number(process.env.PORT)

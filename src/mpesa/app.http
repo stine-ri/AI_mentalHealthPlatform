@@ -1,0 +1,75 @@
+### Start with environment variables in .env file
+# MPESA_CONSUMER_KEY=your_consumer_key
+# MPESA_CONSUMER_SECRET=your_consumer_secret
+# MPESA_PASSKEY=your_passkey
+# MPESA_SHORT_CODE=your_shortcode
+# MPESA_CALLBACK_URL=https://your-callback-url.com/api/mpesa/callback
+# MPESA_API_URL=https://sandbox.safaricom.co.ke
+
+### Initiate STK Push Payment locally
+POST http://localhost:8000/api/initiate
+Content-Type: application/json
+
+{
+  "phoneNumber": "254705912632",
+  "amount": 1,
+  "referenceCode": "TEST123",
+  "description": "Test Payment"
+}
+### Initiate STK Push Payment on Render
+POST https://mpesa-api-billing-system.onrender.com/api/initiate
+Content-Type: application/json
+
+{
+  "phoneNumber": "254705912632",
+  "amount": 1,
+  "referenceCode": "TEST123",
+  "description": "Test Payment"
+}
+
+### Check Transaction Status (replace with actual checkoutRequestId) locally 
+GET http://localhost:8000/api/mpesa/transaction/ws_CO_DMZ_123456789_123456789
+
+### Check Transaction Status (replace with actual checkoutRequestId) on Render
+GET https://mpesa-api-billing-system.onrender.com/ws_CO_DMZ_123456789_123456789
+
+### Get All Transactions
+GET http://localhost:8000/api/transactions
+
+#### Get All Transactions on Render
+GET https://mpesa-api-billing-system.onrender.com/api/transactions
+
+### M-Pesa Callback Simulation (for testing locally)
+POST http://localhost:8000/api/callback
+Content-Type: application/json
+
+{
+  "Body": {
+    "stkCallback": {
+      "MerchantRequestID": "29115-34620561-1",
+      "CheckoutRequestID": "ws_CO_DMZ_123456789_123456789",
+      "ResultCode": 0,
+      "ResultDesc": "The service request is processed successfully.",
+      "CallbackMetadata": {
+        "Item": [
+          {
+            "Name": "Amount",
+            "Value": 1
+          },
+          {
+            "Name": "MpesaReceiptNumber",
+            "Value": "RAL123456"
+          },
+          {
+            "Name": "TransactionDate",
+            "Value": 20220101123456
+          },
+          {
+            "Name": "PhoneNumber",
+            "Value": 254712345678
+          }
+        ]
+      }
+    }
+  }
+}

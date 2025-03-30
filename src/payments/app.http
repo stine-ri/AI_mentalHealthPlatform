@@ -1,4 +1,9 @@
 ###
+GET http://localhost:8000/api/payments
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoiQ2hyaXN0aW5lIFJpYW4gIiwiY29udGFjdF9waG9uZSI6IjA3OTkwODcxODgiLCJhZGRyZXNzIjoiOTAga2VueWEiLCJpZCI6MX0sInJvbGUiOiJhZG1pbiIsImV4cCI6MTc0MjgyMjczMX0.K3wOB-xzzBwLGmeSPulDuhnlSpHe15NQhhGo2hdOvT4
+###
+###
+
 POST http://localhost:8000/api/payments
 Content-Type: application/json
 

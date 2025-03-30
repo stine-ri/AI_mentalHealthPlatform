@@ -9,6 +9,7 @@ import {
     boolean,
     timestamp,
     date,
+    time,
     pgEnum,
   } from "drizzle-orm/pg-core";
   import { relations } from "drizzle-orm";
@@ -137,19 +138,22 @@ import {
   
 // Bookings Table
 export const bookings = pgTable("bookings", {
-    id: serial("booking_id").primaryKey(),
-    user_id: integer("user_id").notNull().references(() => users.id),
-    therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
-    session_date: date("session_date").notNull(),
-    booking_status: varchar("booking_status", { length: 50 }).default("Pending"), // Could be "Confirmed", "Cancelled", etc.
-    created_at: timestamp("created_at").defaultNow(),
-    updated_at: timestamp("updated_at").defaultNow(),
-  });
-  
-  export const bookingsRelations = relations(bookings, ({ one }) => ({
-    user: one(users, { fields: [bookings.user_id], references: [users.id] }),
-    therapist: one(therapists, { fields: [bookings.therapist_id], references: [therapists.id] }),
-  }));
+  id: serial("booking_id").primaryKey(),
+  user_id: integer("user_id").notNull().references(() => users.id),
+  therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
+  session_date: date("session_date").notNull(),
+  session_time: time("session_time").notNull(), // Added session time column
+  booking_status: varchar("booking_status", { length: 50 }).default("Pending"), // Could be "Confirmed", "Cancelled", etc.
+  created_at: timestamp("created_at").defaultNow(),
+  updated_at: timestamp("updated_at").defaultNow(),
+});
+
+// Define relationships for bookings table
+export const bookingsRelations = relations(bookings, ({ one }) => ({
+  user: one(users, { fields: [bookings.user_id], references: [users.id] }),
+  therapist: one(therapists, { fields: [bookings.therapist_id], references: [therapists.id] }),
+}));
+
 // Authentication Table
 export const Authentication = pgTable("authentication", {
     auth_id: serial("auth_id").primaryKey(),
@@ -167,7 +171,31 @@ export const authenticationRelations = relations(Authentication, ({ one }) => ({
         references: [users.id],
     }),
 }));
-   
+
+ // M-Pesa Transaction Schema
+ export const mpesaTransactions = pgTable('mpesa_transactions', {
+  id: serial('id').primaryKey(),
+  merchantRequestId: varchar('merchant_request_id', { length: 100 }).notNull(),
+  checkoutRequestId: varchar('checkout_request_id', { length: 100 }).notNull(),
+  phoneNumber: varchar('phone_number', { length: 15 }).notNull(),
+  amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+  referenceCode: varchar('reference_code', { length: 50 }).notNull(),
+  description: varchar('description', { length: 255 }).notNull(),
+  transactionDate: timestamp('transaction_date').defaultNow().notNull(),
+  mpesaReceiptNumber: varchar('mpesa_receipt_number', { length: 50 }),
+  resultCode: integer('result_code'),
+  resultDescription: varchar('result_description', { length: 255 }),
+  isComplete: boolean('is_complete').default(false),
+  isSuccessful: boolean('is_successful').default(true),
+  callbackMetadata: varchar('callback_metadata', { length: 1000 }),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull()
+});
+
+// Export types for TypeScript support
+export type MpesaTransaction = typeof mpesaTransactions.$inferSelect;
+export type NewMpesaTransaction = typeof mpesaTransactions.$inferInsert;
+  
 export type TIUsers = typeof users.$inferInsert;
 export type TSUsers = typeof users.$inferSelect;
 

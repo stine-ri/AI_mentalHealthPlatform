@@ -1,0 +1,1 @@
+ALTER TABLE "bookings" ADD COLUMN "session_time" time NOT NULL;
