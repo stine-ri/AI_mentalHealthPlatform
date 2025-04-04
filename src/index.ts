@@ -21,7 +21,7 @@ app.get('/', (c) => {
 //middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // ✅ Allow only your frontend
+    origin: "https://ai-mental-health-frontend.vercel.app/", // ✅ Allow only your frontend
     credentials: true, // ✅ Allow authentication
   })
 );
