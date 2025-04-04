@@ -29,27 +29,37 @@ import {
     updated_at: timestamp("updated_at").defaultNow(),
   });
   
-  export const usersRelations = relations(users, ({many }) => ({
-    sessions: many(sessions),
-    feedback: many(feedback),
-    diagnostics: many(diagnostics),
-  }));
+ // Update Users-Therapists Relationship
+export const usersRelations = relations(users, ({ many, one }) => ({
+  therapists: one(therapists, { fields: [users.id], references: [therapists.user_id] }), // One user can be a therapist
+  sessions: many(sessions),
+  feedback: many(feedback),
+  diagnostics: many(diagnostics),
+  payments: many(payments),
+  bookings: many(bookings),
+  authentication: one(Authentication, { fields: [users.id], references: [Authentication.user_id] }),
+}));
   
-  // Therapists Table
-  export const therapists = pgTable("therapists", {
-    id: serial("therapist_id").primaryKey(),
-    full_name: text("full_name").notNull(),
-    specialization: varchar("specialization", { length: 255 }),
-    experience_years: integer("experience_years").default(0),
-    contact_phone: varchar("contact_phone", { length: 20 }),
-    availability: boolean("availability").default(true), 
-    created_at: timestamp("created_at").defaultNow(),
-    updated_at: timestamp("updated_at").defaultNow(),
-  });
-  
-  export const therapistsRelations = relations(therapists, ({ many }) => ({
-    sessions: many(sessions),
-  }));
+// Therapists Table (Updated)
+export const therapists = pgTable("therapists", {
+  id: serial("therapist_id").primaryKey(),
+  user_id: integer("user_id").notNull().references(() => users.id, { onDelete: "cascade" }), // Link to users
+  full_name: text("full_name").notNull(),
+  specialization: varchar("specialization", { length: 255 }),
+  experience_years: integer("experience_years").default(0),
+  contact_phone: varchar("contact_phone", { length: 20 }),
+  availability: boolean("availability").default(true), 
+  created_at: timestamp("created_at").defaultNow(),
+  updated_at: timestamp("updated_at").defaultNow(),
+});
+
+
+export const therapistsRelations = relations(therapists, ({ one, many }) => ({
+  user: one(users, { fields: [therapists.user_id], references: [users.id] }), // A therapist is also a user
+  sessions: many(sessions),
+  bookings: many(bookings),
+}));
+
   
   // Sessions Table
   export const sessions = pgTable("sessions", {

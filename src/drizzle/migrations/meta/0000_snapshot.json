@@ -1,5 +1,5 @@
 {
-  "id": "897130e7-c5e1-43d1-9359-277e1a64800c",
+  "id": "1314d32d-3f15-4564-a40a-8552d93d9d60",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -110,6 +110,12 @@
         "session_date": {
           "name": "session_date",
           "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "session_time": {
+          "name": "session_time",
+          "type": "time",
           "primaryKey": false,
           "notNull": true
         },
@@ -663,6 +669,12 @@
           "primaryKey": true,
           "notNull": true
         },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "full_name": {
           "name": "full_name",
           "type": "text",
@@ -711,7 +723,21 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "therapists_user_id_users_user_id_fk": {
+          "name": "therapists_user_id_users_user_id_fk",
+          "tableFrom": "therapists",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},

@@ -29,7 +29,7 @@ POST http://localhost:8000/api/payments/create-payment-intent
 Content-Type: application/json
 
 {
-  "userId": 9,
+  "userId": 7,
   "sessionId": 1,
   "amount": 1000,     
   "currency": "usd",

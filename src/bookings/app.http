@@ -8,9 +8,10 @@ Content-Type: application/json
 
 {
 
-    "user_id":9,
-    "therapist_id":3,
+    "user_id":2,
+    "therapist_id":7,
     "session_date":"2025-02-05",
+    "session_time":"10:00:00",
     "booking_status":"Booked"
 
 }

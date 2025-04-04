@@ -15,6 +15,7 @@ CREATE TABLE "bookings" (
 	"user_id" integer NOT NULL,
 	"therapist_id" integer NOT NULL,
 	"session_date" date NOT NULL,
+	"session_time" time NOT NULL,
 	"booking_status" varchar(50) DEFAULT 'Pending',
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
@@ -89,6 +90,7 @@ CREATE TABLE "sessions" (
 --> statement-breakpoint
 CREATE TABLE "therapists" (
 	"therapist_id" serial PRIMARY KEY NOT NULL,
+	"user_id" integer NOT NULL,
 	"full_name" text NOT NULL,
 	"specialization" varchar(255),
 	"experience_years" integer DEFAULT 0,
@@ -119,4 +121,5 @@ ALTER TABLE "feedback" ADD CONSTRAINT "feedback_session_id_sessions_session_id_f
 ALTER TABLE "payments" ADD CONSTRAINT "payments_user_id_users_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("user_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "payments" ADD CONSTRAINT "payments_session_id_sessions_session_id_fk" FOREIGN KEY ("session_id") REFERENCES "public"."sessions"("session_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "sessions" ADD CONSTRAINT "sessions_user_id_users_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("user_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "sessions" ADD CONSTRAINT "sessions_therapist_id_therapists_therapist_id_fk" FOREIGN KEY ("therapist_id") REFERENCES "public"."therapists"("therapist_id") ON DELETE no action ON UPDATE no action;
+ALTER TABLE "sessions" ADD CONSTRAINT "sessions_therapist_id_therapists_therapist_id_fk" FOREIGN KEY ("therapist_id") REFERENCES "public"."therapists"("therapist_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "therapists" ADD CONSTRAINT "therapists_user_id_users_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("user_id") ON DELETE cascade ON UPDATE no action;

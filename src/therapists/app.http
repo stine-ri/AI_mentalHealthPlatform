@@ -1,5 +1,5 @@
 GET http://localhost:8000/api/therapists
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoiQ2hyaXN0aW5lIFJpYW4gIiwiY29udGFjdF9waG9uZSI6IjA3OTkwODcxODgiLCJhZGRyZXNzIjoiOTAga2VueWEiLCJpZCI6MX0sInJvbGUiOiJhZG1pbiIsImV4cCI6MTc0MzExODI2N30.Jo6zijSTtwFuI7xUusMrEq-JaL2jQX07jiDuZkjETh4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiZnVsbF9uYW1lIjoiQ2hyaXN0aW5lIFJpYW4gIiwiY29udGFjdF9waG9uZSI6IjA3OTkwODcxODgiLCJhZGRyZXNzIjoiOTAga2VueWEiLCJpZCI6MX0sInJvbGUiOiJhZG1pbiIsImV4cCI6MTc0MzM3NjI4OH0.VK7FdTHmnPcXKXclkukBnMWRivt5PZXdtxmeAloNfIk
 ###
 
 ###
@@ -7,7 +7,7 @@ POST http://localhost:8000/api/therapists
 Content-Type: application/json
 
 {
-
+      "user_id": 1,
      "full_name": "Dr OntwekaMonyancha",
       "specialization": "Clinical Social worker",
       "experience_years": 13,
@@ -20,11 +20,77 @@ POST http://localhost:8000/api/therapists
 Content-Type: application/json
 
 {
+     "user_id": 2,
+     "full_name": "Dr Cyrus Kimutai",
+      "specialization": "psychiatrist",
+      "experience_years": 15,
+      "contact_phone": "0734567231",
+      "availability":true
+}
+###
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
 
+{
+     "user_id": 3,
+     "full_name": "Dr Sadiki Kweyu",
+      "specialization": "psychologist",
+      "experience_years": 35,
+      "contact_phone": "0734563172",
+      "availability":true
+}
+###
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+      "user_id": 4,
+     "full_name": "Dr Faith Peter",
+      "specialization": "Therapists",
+      "experience_years": 5,
+      "contact_phone": "0772313456",
+      "availability":true
+}
+###
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+
+      "user_id": 5,
+     "full_name": "Dr Ryan Kasire",
+      "specialization": "Licensed Counsellor",
+      "experience_years": 15,
+      "contact_phone": "0734786521",
+      "availability":true
+}
+###
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+      "user_id": 6,
+     "full_name": "Dr Christopher Ontweka",
+      "specialization": "Neuropsychiatrist",
+      "experience_years": 45,
+      "contact_phone": "0789767231",
+      "availability":true
+}
+###
+###
+POST http://localhost:8000/api/therapists
+Content-Type: application/json
+
+{
+      "user_id": 1,
      "full_name": "Dr Christine Monyancha",
       "specialization": "Clinical Social worker",
-      "experience_years": 23,
-      "contact_phone": "0767954329",
+      "experience_years": 15,
+      "contact_phone": "0734567231",
       "availability":true
 }
 ###

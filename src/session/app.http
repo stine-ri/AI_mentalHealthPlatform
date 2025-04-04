@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
 
-    "user_id":9,
-    "therapist_id":1,
+    "user_id":1,
+    "therapist_id":7,
     "session_date": "2025-02-05T00:00:00Z",
     "session_notes":"The patient is improving"
 }
