@@ -23,6 +23,7 @@ app.use(
   cors({
     origin: "https://ai-mental-health-frontend.vercel.app/", // ✅ Allow only your frontend
     credentials: true, // ✅ Allow authentication
+    allowHeaders: ['Content-Type', 'Authorization'], // ✅ Allow only specific headers
   })
 );
 
