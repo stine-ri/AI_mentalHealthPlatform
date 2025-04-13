@@ -21,10 +21,11 @@ app.get('/', (c) => {
 //middleware
 app.use(
   cors({
+    
     origin: "https://ai-mental-health-frontend.vercel.app/", // ✅ Allow only your frontend
     credentials: true, // ✅ Allow authentication
     allowHeaders: ['Content-Type', 'Authorization'], // ✅ Allow only specific headers
-    allowMethods: ['GET', 'POST', 'PUT', 'DELETE'], // ✅ Allow only specific methods
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // ✅ Allow only specific methods
   })
 );
 
