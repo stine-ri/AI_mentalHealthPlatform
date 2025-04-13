@@ -22,7 +22,10 @@ app.get('/', (c) => {
 app.use(
   cors({
     
-    origin: "https://ai-mental-health-frontend.vercel.app", // ✅ Allow only your frontend
+    origin: [
+      "https://ai-mental-health-frontend.vercel.app",
+      "http://localhost:5173/"
+    ], // ✅ Allow only your frontend
     credentials: true, // ✅ Allow authentication
     allowHeaders: ['Content-Type', 'Authorization'], // ✅ Allow only specific headers
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // ✅ Allow only specific methods
